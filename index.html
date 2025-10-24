@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📚 Bookify App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="login-screen" class="screen active">
+        <div class="login-container">
+            <h1>📚 Bookify</h1>
+            <p>Login to Continue</p>
+            <form id="login-form">
+                <input type="text" id="username" placeholder="Username (user123)" required>
+                <input type="password" id="password" placeholder="Password (1234)" required>
+                <button type="submit" class="btn-primary">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="app-container" style="display: none;">
+
+        <div id="home-screen" class="screen">
+            <header>
+                <h2>Welcome! In Bookify App 📚</h2>
+            </header>
+            <h3 class="section-label">Recommended for You</h3>
+            <div class="book-list" id="home-book-list">
+                <div class="loading-spinner"></div>
+            </div>
+        </div>
+
+        <div id="search-screen" class="screen">
+            <header>
+                <h2>Search Books 🔍</h2>
+            </header>
+            <div class="search-box">
+                <input type="text" id="search-input" placeholder="Search books by title or author...">
+                <button id="search-button" class="btn-icon"><i class="fas fa-search"></i></button>
+            </div>
+            <h3 class="section-label" id="search-results-label">Search Results</h3>
+            <div class="book-list" id="search-book-list">
+                <p class="info-message">Start searching to find your next book!</p>
+            </div>
+        </div>
+
+        <div id="favorites-screen" class="screen">
+            <header>
+                <h2>My Favorites ❤️</h2>
+            </header>
+            <div class="book-list" id="favorites-book-list">
+                <p class="info-message hidden" id="no-favorites-message">You haven't added any favorites yet.</p>
+            </div>
+        </div>
+        
+        <div id="profile-screen" class="screen">
+            <header>
+                <h2>Profile 👤</h2>
+            </header>
+            <div class="profile-card">
+                <img id="profile-avatar" src="" alt="User Avatar" class="avatar">
+                <h3 id="profile-username">user123</h3>
+                
+                <div class="stats-section">
+                    <p><strong>Favorites:</strong> <span id="stat-favorites">0</span> books</p>
+                    <p><strong>Books Rated:</strong> <span id="stat-rated">0</span> books</p>
+                </div>
+
+                <button id="logout-btn" class="btn-primary logout-btn">Logout</button>
+            </div>
+        </div>
+
+        <div id="details-screen" class="screen detail-page">
+            <header>
+                <i class="fas fa-arrow-left back-btn" id="back-button"></i>
+                <h2>Book Details</h2>
+            </header>
+            <div class="detail-content">
+                <img id="detail-image" src="placeholder.png" alt="Book Cover" class="detail-img">
+                <h2 id="detail-title"></h2>
+                <h3 id="detail-author"></h3>
+                <div class="rating-display">
+                    <span id="detail-rating-stars"></span>
+                    <span id="detail-rating-text"></span>
+                </div>
+                <button id="detail-favorite-btn" class="btn-secondary"></button>
+                <h4>Description:</h4>
+                <p id="detail-description"></p>
+            </div>
+        </div>
+
+        <nav class="bottom-navbar">
+            <a href="#" class="nav-item active" data-screen="home-screen">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a href="#" class="nav-item" data-screen="search-screen">
+                <i class="fas fa-search"></i>
+                <span>Search</span>
+            </a>
+            <a href="#" class="nav-item" data-screen="favorites-screen">
+                <i class="fas fa-heart"></i>
+                <span>Favorites</span>
+            </a>
+            <a href="#" class="nav-item" data-screen="profile-screen">
+                <i class="fas fa-user"></i>
+                <span>Profile</span>
+            </a>
+        </nav>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
